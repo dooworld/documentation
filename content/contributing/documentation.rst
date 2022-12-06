@@ -41,8 +41,6 @@ the user documentation of Odoo.
    - :doc:`documentation/rst_cheat_sheet`
    - :doc:`documentation/rst_guidelines`
 
-.. _contributing/getting-started:
-
 Getting started
 ===============
 
