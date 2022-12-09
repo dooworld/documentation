@@ -4,8 +4,7 @@ Chapter 1: Components
 
 This chapter introduces the `Owl framework <https://github.com/odoo/owl>`_, a tailor-made component
 system for Odoo. The main building blocks of OWL are `components
-<{OWL_PATH}/doc/reference/component.md>`_ and `templates
-<{OWL_PATH}/doc/reference/templates.md>`_.
+<{OWL_PATH}/doc/reference/component.md>`_ and `templates <{OWL_PATH}/doc/reference/templates.md>`_.
 
 In Owl, every part of user interface is managed by a component: they hold the logic and define the
 templates that are used to render the user interface. In practice, a component is represented by a
@@ -36,12 +35,12 @@ small JavaScript class subclassing the `Component` class.
 
    .. code-block:: xml
 
-       <templates xml:space="preserve">
-           <t t-name="my_module.Counter" owl="1">
-               <p>Counter: <t t-esc="state.value"/></p>
-               <button class="btn btn-primary" t-on-click="increment">Increment</button>
-           </t>
-       </templates>
+      <templates xml:space="preserve">
+          <t t-name="my_module.Counter" owl="1">
+              <p>Counter: <t t-esc="state.value"/></p>
+              <button class="btn btn-primary" t-on-click="increment">Increment</button>
+          </t>
+      </templates>
 
    You maybe noticed the `owl="1"` temporary attribute, it allows Odoo to differentiate Owl
    templates from the old JavaScript framework templates.
@@ -69,7 +68,8 @@ intended to quickly understand and practice the basics of Owl.
 =======================
 
 As a first exercise, let us implement a counter in the `Playground` component located in
-:file:`owl_playground/static/src/`.
+:file:`owl_playground/static/src/`. To see the result, you can go to the `owl_playground/playground`
+route with your browser.
 
 .. exercise::
 
@@ -93,7 +93,7 @@ As a first exercise, let us implement a counter in the `Playground` component lo
 =================================
 
 For now we have the logic of a counter in the `Playground` component, let us see how to create a
-sub-component from it.
+`sub-component <{OWL_PATH}/doc/reference/component.md#sub-components>`_ from it.
 
 .. exercise::
 
@@ -129,8 +129,8 @@ todos. This will be done incrementally in multiple exercises that will introduce
          .. code-block:: javascript
 
             setup() {
-               ...
-               this.todo = { id: 3, description: "buy milk", done: false };
+                ...
+                this.todo = { id: 3, description: "buy milk", done: false };
             }
 
    .. image:: 01_components/todo.png
@@ -146,14 +146,19 @@ todos. This will be done incrementally in multiple exercises that will introduce
 
 The `Todo` component has an implicit API. It expects to receive in its props the description of a
 todo object in a specified format: `id`, `description` and `done`. Let us make that API more
-explicit. We can add a props definition that will let Owl perform a validation step in :ref:`dev
-mode <developer-mode>`. It is a good practice to do that for every component.
+explicit. We can add a props definition that will let Owl perform a validation step in `dev mode
+<{OWL_PATH}/doc/reference/app.md#dev-mode>`_. You can activate the dev mode in the `App
+configuration <{OWL_PATH}/doc/reference/app.md#configuration>`_
+
+ It is a good practice to do props validation for every component.
 
 .. exercise::
 
    #. Add `props validation <{OWL_PATH}/doc/reference/props.md#props-validation>`_ to the `Todo`
       component.
-   #. Make sure it passes in :ref:`dev mode <developer-mode>`.
+   #. Make sure it passes in dev mode which can be activated by adding :code:`dev:true` in the
+      `config` parameter of the `mount <{OWL_PATH}/doc/reference/app.md#mount-helper>`_ function
+      in :file:`owl_playground/static/src/main.js`.
    #. Remove `done` from the props and reload the page. The validation should fail.
 
 5. A list of todos
@@ -165,7 +170,7 @@ list.
 .. exercise::
 
    #. Change the code to display a list of todos instead of just one, and use `t-foreach
-      <{OWL_PATH}/doc/reference/templates.md#loops>`_ in the template
+      <{OWL_PATH}/doc/reference/templates.md#loops>`_ in the template.
    #. Think about how it should be keyed with the `t-key` directive.
 
    .. image:: 01_components/todo_list.png
@@ -196,7 +201,7 @@ a todo to the list.
 
       .. code-block:: javascript
 
-          this.todos = useState([]);
+         this.todos = useState([]);
 
    .. image:: 01_components/create_todo.png
       :scale: 70%
