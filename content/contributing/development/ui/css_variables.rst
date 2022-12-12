@@ -30,7 +30,7 @@ We define these properties into the component's main block, providing fallback u
    }
 
 .. seealso::
-   - Odoo `CSS Variables guidelines <scss.html#css-variables-aka-custom-properties>`_.
+   - Odoo `CSS Variables guidelines <scss.html#css-variables-aka-custom-properties>`_
    - CSS variables on `MDN web docs <https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties>`_
 
 
@@ -59,27 +59,27 @@ The implementation of the previous example should be improved by adding SCSS var
 .. code-block:: scss
    :caption: :file:`my_component.variables.scss`
 
-   $o_MyComponent_color: $o-main-code-color;
+   $o_my_component_color: $o-main-code-color;
    // [...]
 
 .. code-block:: scss
    :caption: :file:`my_dashboard.variables.scss`
 
-   $o_MyDashboard_card_color: $o-brand-primary;
+   $o_my_dashboard_card_color: $o-brand-primary;
    // [...]
 
 .. code-block:: text
    :caption: :file:`my_component.scss`
 
-   .o_MyComponent {
-      color: var(--MyComponent-color, #{$o_MyComponent_color});
+   .o_my_component {
+      color: var(--MyComponent-color, #{$o_my_component_color});
    }
 
 .. code-block:: text
    :caption: :file:`my_dashboard.scss`
 
-   .o_MyDashboard {
-      --MyComponent-color: #{$o_MyDashboard_card_color};
+   .o_my_dashboard {
+      --MyComponent-color: #{$o_my_dashboard_card_color};
    }
 
 

@@ -922,8 +922,8 @@ Symbols and Conventions
 
 .. _contributing/development/js_guidelines:
 
-Javascript and (S)CSS
-=====================
+Javascript, CSS and SCSS
+========================
 
 Static files organization
 --------------------------

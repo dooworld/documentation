@@ -7,8 +7,8 @@ User Interface
 .. toctree::
     :titlesonly:
 
-    ui/scss
+    ui/scss_guidelines
     ui/scss_inheritance
     ui/css_variables
-    ui/scss_optimization
+    ui/scss_tips
     ui/icons

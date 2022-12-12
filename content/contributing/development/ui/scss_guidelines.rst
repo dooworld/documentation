@@ -1,3 +1,4 @@
+:custom-css: scss_guidelines.css
 
 .. _contributing/scss:
 
@@ -62,16 +63,16 @@ Order properties from the "outside", starting from `position` and ending with de
 
 .. code-block::
 
-    .o_myComponent {
+    .o_element {
         $-inner-gap: $border-width + $legend-margin-bottom;
 
-        --myComponent-margin: 1rem;
-        --myComponent-size: 3rem;
+        --element-margin: 1rem;
+        --element-size: 3rem;
 
         @include o-position-absolute(1rem);
         display: block;
-        margin: var(--myComponent-margin);
-        width: calc(var(--myComponent-size) + #{$-inner-gap});
+        margin: var(--element-margin);
+        width: calc(var(--element-size) + #{$-inner-gap});
         border: 0;
         padding: 1rem;
         background: blue;
@@ -89,31 +90,35 @@ Use the "Grandchild" approach
 -----------------------------
 Avoid creating hyper-specific classes and variables names. When naming nested elements, opt for the "Grandchild" approach.
 
-Besides being more compact, this approach improves maintenance 'cause avoids the need to rename classes and variables in case of DOM changes.
+.. example::
 
-Don't:
+   .. rst-class:: bad-example
+   .. code-block:: html
+      :caption: Don't
 
-.. code-block:: html
-
-    <div class=“o_MyBox_wrapper”>
-        <div class=“o_MyBox_wrapper_entries”>
-            <span class=“o_MyBox_wrapper_entries_entry”>
-                <a class=“o_MyBox_wrapper_entries_entry_link”>Entry</a>
+      <div class=“o_element_wrapper”>
+         <div class=“o_element_wrapper_entries”>
+            <span class=“o_element_wrapper_entries_entry”>
+               <a class=“o_element_wrapper_entries_entry_link”>Entry</a>
             </span>
-        </div>
-    </div>
+         </div>
+      </div>
 
-Do:
 
-.. code-block:: html
+   .. rst-class:: good-example
+   .. code-block:: html
+      :caption: Do
 
-    <div class=“o_MyBox_wrapper”>
-        <div class=“o_MyBox_entries”>
-            <span class=“o_MyBox_entry”>
-                <a class=“o_MyBox_link”>Entry</a>
+      <div class=“o_element_wrapper”>
+         <div class=“o_element_entries”>
+            <span class=“o_element_entry”>
+               <a class=“o_element_link”>Entry</a>
             </span>
-        </div>
-    </div>
+         </div>
+      </div>
+
+
+Besides being more compact, this approach improves maintenance 'cause avoids the need of renaming classes and variables in case of DOM changes.
 
 
 .. ####### NOT COMMON CONSENSUS YET #######
@@ -180,12 +185,12 @@ Our standard convention is `$-[variable name]`.
 
 .. code-block::
 
-    .o_myComponent {
+    .o_element {
         $-inner-gap: compute-something;
 
         margin-right: $-inner-gap;
 
-        .o_myComponent_child {
+        .o_element_child {
             margin-right: $-inner-gap * 0.5;
         }
     }

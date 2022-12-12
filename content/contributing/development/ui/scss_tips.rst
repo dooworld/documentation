@@ -29,24 +29,28 @@ At this stage all "browser-specific-decoration" rules have been stripped away, b
 
 You can rely on these rules.
 
-For example, apply `display: block;` to a `<div/>` is normally not necessary.
+.. example::
 
-.. code-block:: css
+   For example, apply `display: block;` to a `<div/>` is normally not necessary.
 
-   div.myElement {
-      display: block;
-      /* not needed 99% of the time */
-   }
+   .. code-block:: css
 
-For the same reason, sometimes you may opt to switch html tag rather than adding a new CSS rule.
+      div.element {
+         display: block;
+         /* not needed 99% of the time */
+      }
 
-.. code-block:: css
+.. example::
 
-   span.myElement {
-      display: block;
-      /* replace <span> with <div> instead
-         to get 'display: block' by default */
-   }
+   For the same reason, sometimes you may opt to switch html tag rather than adding a new CSS rule.
+
+   .. code-block:: css
+
+      span.element {
+         display: block;
+         /* replace <span> with <div> instead
+            to get 'display: block' by default */
+      }
 
 
 Follows a non-comprehensive list of default rules:
@@ -82,11 +86,11 @@ Follows a non-comprehensive list of default rules:
 Use tags
 ========
 
-| It may seems obvious, but the most simple and **consistent** way to "convert" a text to a title is to use a title html tag (`<h1>`, `<h2>`, ...).
+| It may seems obvious, but the most simple and **consistent** way to "convert" text to a title is to use a title html tag (`<h1>`, `<h2>`, ...).
 | Beside reboot rules, mostly all tags carry decorative style defined by Odoo.
 
 
-Dont'
+Don't
 
 
 .. tabs::
